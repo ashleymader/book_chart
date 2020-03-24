@@ -21,3 +21,12 @@ user types 1 or 2
 
 Shows the list of books 
 
+
+
+What is a book? 
+
+A book has a title, author, weeks on the list, ???fiction/nonfiction???, 
+
+next level through *hyperlink need to get description, length of pages? publication date?
+
+??about the author??
