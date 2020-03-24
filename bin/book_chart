@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+require './lib/book_chart'
+
+BookChart::CLI.new.call
