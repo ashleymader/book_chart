@@ -38,3 +38,12 @@ A book has a URL to purchase?
 
 
 ??about the author??
+
+
+
+scraper notes 
+  title = # puts thing.css(".kc-rank-card-title").text
+  author =  # puts thing.css(".kc-rank-card-author").text
+  weeks on list # puts thing.css(".kc-wol").text
+  rank on list =  # puts thing.css(".kc-rank-card-rank").text
+  link to book on amazon =  #puts thing.css("a.kc-cover-link.app-specific-display.not_app").attr("href") <<< need to look into this. loading out of order>>>

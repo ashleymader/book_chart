@@ -6,7 +6,6 @@ class BookChart::CLI
         welcome
         list_charts
         menu
-        goodbye
     end
 
     def welcome
@@ -14,24 +13,34 @@ class BookChart::CLI
     end
     def list_charts
         puts "Today's Book Charts:"
-        puts "1.Most Read 
-2.Most Sold"
+        puts "1. Most Read Fiction" 
+        puts "2. Most Read Nonfiction" 
+        puts "3. Most Sold Fiction" 
+        puts "4. Most Sold Nonfiction"
     end
 
     def menu 
-        puts "Enter the number of the book chart you would like to see, back to go back, or type exit"
+        puts "Enter the number of the book chart you would like to see, 'back' to go back, or type 'exit'."
         input = nil
         while input != "exit"
             input = gets.strip.downcase
             case input 
-            when "1"
-                puts "More info on Most Read..."
+            when "1", "one"
                 puts "Type 'back' to get to the main menu"
-            when "2"
-                puts "More info on Most Sold..."
+                puts "More info on Most Read Fiction..."
+            when "2", "two"
                 puts "Type 'back' to get to the main menu"
+                puts "More info on Most Read Nonfiction..."
+            when "3", "three"
+                puts "Type 'back' to get to the main menu"
+                puts "More info on Most Sold Fiction..."
+            when "4", "four"
+                puts "Type 'back' to get to the main menu"
+                puts "More info on Most Read Nonfiction..."
             when "back"
                 list_charts
+            when "exit" 
+                goodbye
             else 
                 puts "Oops! Looks like you typed something wrong. Please try again"
             end
