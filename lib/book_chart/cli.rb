@@ -6,6 +6,11 @@ class BookChart::CLI
         welcome
         list_charts
         menu
+        #scrape after selection
+        #display scrape info 
+        #gets user input 
+        #scrape info from next page
+        #display info to user
     end
 
     def welcome
@@ -21,6 +26,7 @@ class BookChart::CLI
 
     def menu 
         puts "Enter the number of the book chart you would like to see, 'back' to go back, or type 'exit'."
+        @charts = []
         input = nil
         while input != "exit"
             input = gets.strip.downcase
