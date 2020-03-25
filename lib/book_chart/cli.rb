@@ -42,7 +42,7 @@ class BookChart::CLI
             when "exit" 
                 goodbye
             else 
-                puts "Oops! Looks like you typed something wrong. Please try again"
+                puts "Oops! Looks like you typed an invalid selection. Please try again"
             end
         end
     end
