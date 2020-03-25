@@ -14,13 +14,13 @@ How to build CLI Gem
 
 user types ./bin/book-charts
 APP FLOW
-Show a choice of Most Read Fiction, Most Read Nonfiction, Most Sold Fiction, Most Sold Nonfiction
-User selects one of the above 
-scraper returns the books in that category and displays title, author, weeks on list. 
-user needs to be able to go back
-User can then select to get more details on a particular book 
-returns to the user the description, pages in book, publication date, price ???maybe a link to buy??? 
-user needs to be able to go back one menu, go back to main menu, or exit. 
+1. Show a choice of Most Read Fiction, Most Read Nonfiction, Most Sold Fiction, Most Sold Nonfiction
+2. User selects one of the above 
+3. Scraper returns the books in that category and displays title, author, weeks on list. 
+  3a. user needs to be able to go back or exit
+4. User can then select to get more details on a particular book 
+5. Returns to the user the description, pages in book, publication date, price ???maybe a link to buy??? 
+  5a. user needs to be able to go back one menu, go back to main menu, or exit. 
 DO I WANT TO ADD AN ABOUT THE AUTHOR SECTION? 
 
 What is a book? 
