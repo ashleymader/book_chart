@@ -1,7 +1,7 @@
 require_relative "book_chart/version"
 require_relative "./book_chart/cli"
 require_relative "./book_chart/chart"
-
+require 'pry'
 
 
 # module BookChart
@@ -9,3 +9,4 @@ require_relative "./book_chart/chart"
 #   # Your code goes here...
 # end
 
+##THIS IS YOUR ENVIRONMENT FILE
