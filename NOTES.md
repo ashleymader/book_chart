@@ -25,8 +25,16 @@ Shows the list of books
 
 What is a book? 
 
-A book has a title, author, weeks on the list, ???fiction/nonfiction???, 
+A book has a title
+A book has author 
+A book has Weeks on the list
+A book has a ???fiction/nonfiction???, 
+A book has a URL 
+A book has a description
+A book has a length of pages
+A book has a date of publication
+A book has a price
+A book has a URL to purchase? 
 
-next level through *hyperlink need to get description, length of pages? publication date?
 
 ??about the author??
