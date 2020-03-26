@@ -3,4 +3,10 @@ class BookChart::Chart
     @@all = [] 
 
 
+
+    def self.mrnf 
+        most_read_nf = self.new 
+        most_read_nf.name = "Most Read Nonfiction"
+        most_read_nf
+    end
 end

@@ -1,6 +1,7 @@
 require_relative "book_chart/version"
 require_relative "./book_chart/cli"
 require_relative "./book_chart/chart"
+require_relative "./book_chart/book"
 require 'pry'
 
 
