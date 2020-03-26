@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
-require './lib/book_chart'
+require './lib/environment'
 
 BookChart::CLI.new.call #class method that triggers an instance method within the class

@@ -14,7 +14,7 @@ class BookChart::CLI
     end
 
     def welcome
-        puts "Thank you for visiting Book Charts! We gather the top 20 most read and most sold book of the past week. "
+        puts "\nThank you for visiting Book Charts! \nWe gather the top 20 most read and most sold books of the past week.\n\n"
     end
     def list_charts
         puts "Today's Book Charts:"
