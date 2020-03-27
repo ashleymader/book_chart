@@ -27,10 +27,10 @@ class BookChart::CLI
             input = gets.strip.downcase
             case input 
             when "1", "one"
-                puts "Here are the top 20 Most Read Nonfiction books this week:"
+                @chart = BookChart::Chart.all 
                 most_read_fiction
             when "2", "two"
-                puts "\nHere are the top 20 Most Read Nonfiction books this week:\n"
+                puts "\nHere are the top 20 Most Read Nonfiction books this week:\n" #method that puts the chart
                 most_read_nonfiction
             when "back"
                 menu
@@ -55,12 +55,12 @@ class BookChart::CLI
     def most_read_nonfiction
         puts "\nIf you would like more information on a book, enter the number 1-20\n"
         puts "the info scraped from original page"
-        book_selection = gets.strip.to_i if valid?
+        book_selection = gets.strip.to_i #if valid?
     end
 
-    def valid?(input)
-        input <= data.length && input >0
-    end
+    # def valid?(input)
+    #     input <= data.length && input >0
+    # end
 
-    @books = []
+
 end 

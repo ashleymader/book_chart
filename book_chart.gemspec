@@ -28,4 +28,5 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
   spec.add_runtime_dependency 'nokogiri'
   spec.add_development_dependency 'pry'
+  #spec.add_runtime_dependency 'open-uri'
 end
