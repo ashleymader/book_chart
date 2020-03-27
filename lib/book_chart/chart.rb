@@ -1,12 +1,16 @@
 class BookChart::Chart 
     attr_accessor :title
     @@all = []
-    def inititialize 
+
+    def inititialize(title)
         @title = title 
-        chart = []
+        @@all<<self
     end
 
     def self.all 
-        BookChart::Scraper.chart_list if @@all.empty?
+        BookChart::Scraper.chart_list if !@@all.empty?
+        binding.pry
     end
+
+    
 end

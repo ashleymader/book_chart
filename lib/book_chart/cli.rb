@@ -27,7 +27,6 @@ class BookChart::CLI
             input = gets.strip.downcase
             case input 
             when "1", "one"
-                @chart = BookChart::Chart.all 
                 most_read_fiction
             when "2", "two"
                 puts "\nHere are the top 20 Most Read Nonfiction books this week:\n" #method that puts the chart
@@ -49,6 +48,7 @@ class BookChart::CLI
     def most_read_fiction
         puts "\nIf you would like more information on a book, enter the number 1-20\n"
         puts "the info scraped from original page"
+        @chart = BookChart::Chart.all 
         book_selection = gets.strip #if valid?
     end
     
