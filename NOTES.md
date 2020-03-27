@@ -14,7 +14,7 @@ How to build CLI Gem
 
 user types ./bin/book-charts
 APP FLOW
-1. Show a choice of Most Read Fiction, Most Read Nonfiction, Most Sold Fiction, Most Sold Nonfiction
+1. Show a choice of Books
 2. User selects one of the above 
 3. Scraper returns the books in that category and displays title, author, weeks on list. 
   3a. user needs to be able to go back or exit
@@ -28,14 +28,15 @@ What is a book?
 A book has a title
 A book has author 
 A book has Weeks on the list
+A book has a ranking on list
 A book has a ???fiction/nonfiction???, 
 A book has a URL 
+
+next level deeper >> 
 A book has a description
 A book has a length of pages
 A book has a date of publication
 A book has a price
-A book has a URL to purchase? 
-
 
 ??about the author??
 

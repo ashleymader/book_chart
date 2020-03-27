@@ -4,7 +4,6 @@ class BookChart::CLI
 
     def call 
         welcome
-        list_charts
         menu
         #scrape after selection
         #display scrape info 
@@ -16,35 +15,25 @@ class BookChart::CLI
     def welcome
         puts "\nThank you for visiting Book Charts!\n"
     end
-    def list_charts
-        puts "Today's Book Charts:"
-        puts "1. Most Read Fiction" 
-        puts "2. Most Read Nonfiction" 
-        puts "3. Most Sold Fiction" 
-        puts "4. Most Sold Nonfiction"
-    end
+
 
     def menu 
-        puts "Enter the number of the book chart you would like to see, 'back' to go back, or type 'exit'."
-        @charts = []
+        puts "\nToday's Book Charts:\n"
+        puts "\n1. Most Read Fiction\n" 
+        puts "2. Most Read Nonfiction" 
+        puts "\nEnter the number of the book chart you would like to see, 'back' to go back, or type 'exit'.\n"
         input = nil
         while input != "exit"
             input = gets.strip.downcase
             case input 
             when "1", "one"
-                puts "Type 'back' to get to the main menu"
-                puts "More info on Most Read Fiction..."
+                puts "Here are the top 20 Most Read Nonfiction books this week:"
+                most_read_fiction
             when "2", "two"
-                puts "Type 'back' to get to the main menu"
-                puts "More info on Most Read Nonfiction..."
-            when "3", "three"
-                puts "Type 'back' to get to the main menu"
-                puts "More info on Most Sold Fiction..."
-            when "4", "four"
-                puts "Type 'back' to get to the main menu"
-                puts "More info on Most Read Nonfiction..."
+                puts "\nHere are the top 20 Most Read Nonfiction books this week:\n"
+                most_read_nonfiction
             when "back"
-                list_charts
+                menu
             when "exit" 
                 goodbye
             else 
@@ -57,5 +46,19 @@ class BookChart::CLI
         puts "Thanks for using Book Charts! Come back soon for more good reads."
     end
 
+    def most_read_fiction
+        puts "\nIf you would like more information on a book, enter the number 1-20\n"
+        puts "the info scraped from original page"
+        book_selection = gets.strip #if valid?
+    end
     
+    def most_read_nonfiction
+        puts "\nIf you would like more information on a book, enter the number 1-20\n"
+        puts "the info scraped from original page"
+        book_selection = gets.strip.to_i if valid?
+    end
+
+    def valid?(input)
+        input <= data.length && input >0
+    end
 end 
