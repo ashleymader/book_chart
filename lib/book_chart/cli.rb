@@ -61,4 +61,6 @@ class BookChart::CLI
     def valid?(input)
         input <= data.length && input >0
     end
+
+    @books = []
 end 

@@ -1,7 +1,22 @@
 class BookChart::Book 
+    attr_accessor :title, :author, :wol, :ranking, :category, :url
+    @@all = [] 
+
+    def initialize 
+        @title = title 
+        @author = author 
+        @wol = wol 
+        @ranking = ranking 
+        @category = category
+        @url = url 
+        @@all << self 
+    end
+
+    def self.all 
+        @@all 
+    end
     
-
-
+    
 
 end
 
