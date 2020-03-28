@@ -8,7 +8,7 @@ class BookChart::Scraper
     end
 
     def self.get_book_meta
-        get_page.css("div.sntra-page-content .kc-vertical-rank-container .kc-rank-card")
+        get_page.css("div.kc-rank-card")
     end
 
     def self.get_fiction_book_info
