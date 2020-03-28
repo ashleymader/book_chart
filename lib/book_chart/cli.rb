@@ -48,12 +48,13 @@ class BookChart::CLI
     end
 
     def get_fiction_books
+        BookChart::Scraper.get_fiction_book_info
         @books = BookChart::Book.all
     end
     def list_fiction_books
         puts "\nHere are the top 20 Most Read Fiction books this week:\n"
         @books.each.with_index(1) do |b, i|
-            puts "#{i}. #{b.title} by #{b.author}"
+            puts "#{i}. #{b.title} #{b.author}"
        end
     end
 

@@ -2,20 +2,26 @@
 
 class BookChart::Scraper 
 
-    def self.get_fiction_book_info
+    def self.get_page
         site = "https://www.amazon.com/charts/"
         doc = Nokogiri::HTML(open(site))
-        binding.pry
-        book_cards = doc.css("div.kc-body .kc-rank-card-metadata")
-            book_cards.each do |book| 
-            title = book.css(".kc-rank-card-title").text.strip
-            author =  book.css(".kc-rank-card-author").text.strip
-            wol = book.css(".kc-wol").text.strip
+    end
+
+    def self.get_book_meta
+        get_page.css("div.sntra-page-content .kc-vertical-rank-container .kc-rank-card")
+    end
+
+    def self.get_fiction_book_info
+            get_book_meta.each do |b| 
+            book = BookChart::Book.new
+            book.title = b.css(".kc-rank-card-title").text.strip
+            book.author =  b.css(".kc-rank-card-author").text.strip
+            book.wol = b.css(".kc-wol").text.strip
             # ranking =  book.css(".kc-rank-card-rank").text.strip
             # category = book.css(".kc-sublist-label").text.strip
-            url =  book.css("a.kc-cover-link.app-specific-display.not_app").attr("href")
-            BookChart::Book.new(title, author, wol, url)
-        end
+            book.urlink =  b.css("a.kc-cover-link.app-specific-display.not_app").attr("href")
+            end
+    
     end
 end
 
