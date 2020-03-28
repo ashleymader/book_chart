@@ -1,14 +1,12 @@
-class BookChart::Book 
-    attr_accessor :title, :author, :wol, :ranking, :category, :url
+class BookChart::Book
+    attr_accessor :title, :author, :wol, :url
     @@all = [] 
 
-    def initialize(title, author, wol, ranking, category)
+    def initialize(title, author, wol, url)
         @title = title 
         @author = author 
         @wol = wol 
-        @ranking = ranking 
-        @category = category
-        @url = url 
+        @url = url
         @@all << self 
     end
 
@@ -16,10 +14,35 @@ class BookChart::Book
         @@all 
     end
 
-    def save
-        @@all << self
-    end
-    
+#    def self.fiction_books
+#         self.scrape_fiction_books
+#    end
+
+#    def self.scrape_fiction_books
+#         books = []
+#         books << self.scrape_fiction 
+#         books
+#    end
+
+#    def self.scrape_fiction
+#     site = "https://www.amazon.com/charts/"
+#     doc = Nokogiri::HTML(open(site))
+#     book_cards = doc.css("div.kc-body .kc-rank-card-metadata")
+#         book_cards.each do |book| 
+#         title = book.css(".kc-rank-card-title").text.strip
+#         author =  book.css(".kc-rank-card-author").text.strip
+        
+#         wol = book.css(".kc-wol").text.strip
+#         # ranking =  book.css(".kc-rank-card-rank").text.strip
+#         # category = book.css(".kc-sublist-label").text.strip
+#         url =  book.css("a.kc-cover-link.app-specific-display.not_app").attr("href")
+        
+#     end
+#    end
+
+
+
+    #RETURN LIST OF BOOKS WITH AUTHORS AND TITLE
 
 end
 
