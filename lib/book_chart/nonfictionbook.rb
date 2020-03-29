@@ -9,5 +9,6 @@ class BookChart::NonfictionBook
     def self.all 
         @@all
     end
+
     
 end

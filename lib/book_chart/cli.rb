@@ -4,8 +4,7 @@ class BookChart::CLI
 
     def call 
         puts "\nThank you for visiting Book Charts!\n"
-        get_fiction_books
-        get_nonfiction_books
+        get_all_books
         list_categories
         get_user_input_category
         #menu
@@ -36,7 +35,7 @@ class BookChart::CLI
         when "2"
             list_nonfiction_books
         when "back"
-                list_categories
+            list_categories
         when "exit"
             goodbye
         else 
@@ -48,23 +47,23 @@ class BookChart::CLI
     def goodbye 
         puts "Thanks for using Book Charts! Come back soon for more good reads."
     end
-
-    def get_fiction_books
+    
+    def get_all_books
         BookChart::Scraper.get_fiction_book_info if BookChart::Book.all.empty?
         @books = BookChart::Book.all
+        BookChart::Scraper.get_nonfiction_book_info if BookChart::NonfictionBook.all.empty?
+        @nfbooks = BookChart::NonfictionBook.all
     end
 
     def list_fiction_books
         puts "\n\nHere are the top 20 Most Read Fiction books this week:\n\n"
         @books.each.with_index(1) do |b, i|
+            puts "--------------------------------------"
             puts "#{i}. #{b.title}"
+            puts "    Author: #{b.author}"
+            puts "--------------------------------------"
        end
        puts "\nPlease choose a book you would like more details on:\n"
-    end
-
-    def get_nonfiction_books
-        BookChart::Scraper.get_nonfiction_book_info if BookChart::NonfictionBook.all.empty?
-        @nfbooks = BookChart::NonfictionBook.all
     end
 
     def list_nonfiction_books
@@ -74,5 +73,10 @@ class BookChart::CLI
        end
        puts "\nPlease choose a book you would like more details on:\n"
     end
-end
 
+
+    # def get_book_details 
+    #     input =  gets.strip.to_i 
+
+    # end
+end
