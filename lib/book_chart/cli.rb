@@ -7,7 +7,7 @@ class BookChart::CLI
         get_all_books
         list_categories
         get_user_input_category
-        #menu
+        get_book_details
         
         
         #gets user input 
@@ -26,6 +26,7 @@ class BookChart::CLI
     def get_user_input_category
         chosen_category = gets.strip
         show_books_for(chosen_category) 
+        @input = chosen_category
     end 
 
     def show_books_for(chosen_category)
@@ -60,7 +61,6 @@ class BookChart::CLI
         @books.each.with_index(1) do |b, i|
             puts "--------------------------------------"
             puts "#{i}. #{b.title}"
-            puts "    Author: #{b.author}"
             puts "--------------------------------------"
        end
        puts "\nPlease choose a book you would like more details on:\n"
@@ -72,11 +72,18 @@ class BookChart::CLI
             puts "#{i}. #{b.title}"
        end
        puts "\nPlease choose a book you would like more details on:\n"
+       get_book_details
     end
 
-
-    # def get_book_details 
-    #     input =  gets.strip.to_i 
-
-    # end
+    def get_book_details 
+    book_index = gets.strip.to_i
+    @nfbooks.each.with_index(1) do |b, i|
+        puts "-----------------------------------"
+        puts "#{i}. #{b.title}"
+        puts "Author: #{b.author}"
+        puts "Weeks on list: #{b.wol}"
+        puts "Click to see more info: www.amazon.com#{b.urlink}"
+        puts "-----------------------------------"
+        end
+    end
 end

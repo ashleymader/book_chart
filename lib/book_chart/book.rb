@@ -10,7 +10,14 @@ class BookChart::Book
         @@all
     end
     
-    # def add_deeper_book_info
+    def book_info
+        puts "-----------------------------------"
+        puts "#{title}"
+        puts "Author: #{author}"
+        puts "Weeks on list: #{wol}"
+        puts "Click to see more info: www.amazon.com#{urlink}"
+        puts "-----------------------------------"
+    end
 end
 
 
