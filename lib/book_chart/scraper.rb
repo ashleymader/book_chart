@@ -17,11 +17,8 @@ class BookChart::Scraper
             book.title = b.css(".kc-rank-card-title").text.strip
             book.author =  b.css(".kc-rank-card-author").text.strip
             book.wol = b.css(".kc-wol").text.strip
-            # ranking =  book.css(".kc-rank-card-rank").text.strip
-            # category = book.css(".kc-sublist-label").text.strip
             book.urlink =  b.css("a.kc-cover-link.app-specific-display.not_app").attr("href")
             end
-    
     end
 end
 

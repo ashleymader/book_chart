@@ -2,7 +2,7 @@ require_relative "book_chart/version"
 require_relative "./book_chart/cli"
 require_relative "./book_chart/book"
 require_relative "./book_chart/scraper"
-require_relative "./book_chart/chart"
+
 
 require 'nokogiri'
 require 'open-uri'
