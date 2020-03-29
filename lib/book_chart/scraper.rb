@@ -20,6 +20,12 @@ class BookChart::Scraper
             book.urlink =  b.css("a.kc-cover-link.app-specific-display.not_app").attr("href")
             end
     end
+
+    # def self.get_deeper_book_info(urlink)
+    #     BookChart::Book.each do |info|
+
+    #     end
+    # end
 end
 
 

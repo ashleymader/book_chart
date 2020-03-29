@@ -4,26 +4,16 @@ class BookChart::Book
 
     def initialize
         @@all << self 
+        @info =[]
     end
 
     def self.all 
         @@all
     end
-
-
-
-    #RETURN LIST OF BOOKS WITH AUTHORS AND TITLE
-
+    
+    def add_deeper_book_info
 end
 
-# What is a book? 
-
-# A book has a title
-# A book has author 
-# A book has Weeks on the list
-# A book has a ranking on list
-# A book has a ???fiction/nonfiction???, 
-# A book has a URL 
 
 # next level deeper >> 
 # A book has a description

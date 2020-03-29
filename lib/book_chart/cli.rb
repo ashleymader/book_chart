@@ -6,11 +6,9 @@ class BookChart::CLI
         puts "\nThank you for visiting Book Charts!\n"
         get_fiction_books
         list_categories
-
         menu
         
-        #scrape after selection
-        #display scrape info 
+        
         #gets user input 
         #scrape info from next page
         #display info to user
@@ -52,11 +50,16 @@ class BookChart::CLI
         @books = BookChart::Book.all
     end
     def list_fiction_books
-        puts "\nHere are the top 20 Most Read Fiction books this week:\n"
+        puts "\n\nHere are the top 20 Most Read Fiction books this week:\n\n"
         @books.each.with_index(1) do |b, i|
             puts "#{i}. #{b.title} #{b.author}"
        end
     end
 
-
+    def list_fiction_book_details 
+        @books.each do |b| 
+            puts "#{b.wol}"
+            puts "#{b.urlink}"
+        end
+    end
 end 
