@@ -1,5 +1,5 @@
 class BookChart::Book
-    attr_accessor :title, :author, :wol, :urlink
+    attr_accessor :title, :author, :wol, :about, :sample
     @@all = [] 
 
     def initialize
@@ -11,14 +11,6 @@ class BookChart::Book
         @@all 
     end
     
-    def book_info
-        puts "-----------------------------------"
-        puts "#{title}"
-        puts "Author: #{author}"
-        puts "Weeks on list: #{wol}"
-        puts "Click to see more info: www.amazon.com#{urlink}"
-        puts "-----------------------------------"
-    end
 end
 
 

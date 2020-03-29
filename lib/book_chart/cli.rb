@@ -7,11 +7,6 @@ class BookChart::CLI
         list_categories
         get_all_books
         get_user_input_category
-        
-        
-        #gets user input 
-        #scrape info from next page
-        #display info to user
     end
 
     @@categories = ["Most Read Fiction", "Most Read Nonfiction"]    
@@ -78,7 +73,7 @@ class BookChart::CLI
 
     def get_user_input_nfbook
         puts "Please select which book you would like more information on:"
-        chosen_book = gets.strip.to_i
+        chosen_book = gets.strip.to_i 
         chosen_book_index = (chosen_book-1)
         details = @nfbooks[chosen_book_index]
         puts "-----------------------------------"
@@ -86,7 +81,12 @@ class BookChart::CLI
         puts "Author: #{details.author}"
         puts "Weeks on list: #{details.wol}"
         full_url = ("www.amazon.com/charts#{details.urlink}")
-        puts "Click to see more info: #{full_url}"
+        puts ""
+        puts "ABOUT THE BOOK: 
+        #{details.about}"
+        puts ""
+        puts "READ A SAMPLE HERE:
+        #{details.sample}"
         puts "-----------------------------------"
     end 
   
@@ -95,13 +95,17 @@ class BookChart::CLI
         chosen_book = gets.strip.to_i
         chosen_book_index = (chosen_book-1)
         details = @books[chosen_book_index]
-        puts "\n\nHere is more information about the book you requested\n\n"
+        puts "\nHere is more information about the book you requested!\n"
         puts "-----------------------------------"
         puts "Title: #{details.title}"
         puts "Author: #{details.author}"
         puts "Weeks on list: #{details.wol}"
-        full_url = ("www.amazon.com/charts#{details.urlink}")
-        puts "Click to see more info: #{full_url}"
+        puts ""
+        puts "ABOUT THE BOOK: 
+        #{details.about}"
+        puts ""
+        puts "READ A SAMPLE HERE:
+        #{details.sample}"
         puts "-----------------------------------"
     end 
  
@@ -110,7 +114,7 @@ class BookChart::CLI
         input = gets.strip.downcase
         case input 
         when "y"
-            list_categories
+            call
         when "n"
             goodbye
         end

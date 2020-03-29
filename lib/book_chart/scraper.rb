@@ -17,8 +17,9 @@ class BookChart::Scraper
             book.title = b.css(".kc-rank-card-title").text.strip
             book.author =  b.css(".kc-rank-card-author").text.strip.gsub("by ", "")
             book.wol = b.css(".kc-wol").text.strip
-            book.urlink =  b.css("a.kc-cover-link.app-specific-display.not_app").attr("href")
-            end
+            book.about = b.css(".kc-data-story-text-container p").text.strip
+            book.sample = b.css(".circle-icon.read").attr("href")
+        end
     end
 
     def self.get_page_nonfiction
@@ -36,15 +37,11 @@ class BookChart::Scraper
         book.title = b.css(".kc-rank-card-title").text.strip
         book.author =  b.css(".kc-rank-card-author").text.strip.gsub("by ", "")
         book.wol = b.css(".kc-wol").text.strip
-        book.urlink =  b.css("a.kc-cover-link.app-specific-display.not_app").attr("href")
+        book.about = b.css(".kc-data-story-text-container p").text.strip
+        book.sample = b.css(".circle-icon.read").attr("href")
         end
     end
-
-    # def self.get_deeper_book_info(urlink)
-    #     BookChart::Book.each do |info|
-
-    #     end
-    # end
+    
 end
 
 
