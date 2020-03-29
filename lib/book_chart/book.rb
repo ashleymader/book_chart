@@ -4,14 +4,13 @@ class BookChart::Book
 
     def initialize
         @@all << self 
-        @info =[]
     end
 
     def self.all 
         @@all
     end
     
-    def add_deeper_book_info
+    # def add_deeper_book_info
 end
 
 
@@ -20,5 +19,3 @@ end
 # A book has a length of pages
 # A book has a date of publication
 # A book has a price
-
-# ??about the author??
