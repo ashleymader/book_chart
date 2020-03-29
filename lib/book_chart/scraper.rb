@@ -34,7 +34,7 @@ class BookChart::Scraper
         get_book_meta_nf.each do |b| 
         book = BookChart::NonfictionBook.new
         book.title = b.css(".kc-rank-card-title").text.strip
-        book.author =  b.css(".kc-rank-card-author").text.strip
+        book.author =  b.css(".kc-rank-card-author").text.strip.gsub("by ", "")
         book.wol = b.css(".kc-wol").text.strip
         book.urlink =  b.css("a.kc-cover-link.app-specific-display.not_app").attr("href")
         end

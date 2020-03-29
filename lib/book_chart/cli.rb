@@ -4,10 +4,9 @@ class BookChart::CLI
 
     def call 
         puts "\nThank you for visiting Book Charts!\n"
-        get_all_books
         list_categories
+        get_all_books
         get_user_input_category
-        get_book_details
         
         
         #gets user input 
@@ -15,11 +14,12 @@ class BookChart::CLI
         #display info to user
     end
 
-    
+    @@categories = ["Most Read Fiction", "Most Read Nonfiction"]    
     def list_categories
         puts "\nToday's Book Charts:\n"
-        puts "\n1. Most Read Fiction\n" 
-        puts "2. Most Read Nonfiction" 
+        @@categories.each.with_index(1) do |c, i|
+            puts "#{i}. #{c}"
+        end
         puts "\nEnter the number of the book chart you would like to see, 'back' to go back, or type 'exit'.\n"
     end
 
@@ -50,9 +50,7 @@ class BookChart::CLI
     end
     
     def get_all_books
-        BookChart::Scraper.get_fiction_book_info if BookChart::Book.all.empty?
         @books = BookChart::Book.all
-        BookChart::Scraper.get_nonfiction_book_info if BookChart::NonfictionBook.all.empty?
         @nfbooks = BookChart::NonfictionBook.all
     end
 
@@ -63,27 +61,60 @@ class BookChart::CLI
             puts "#{i}. #{b.title}"
             puts "--------------------------------------"
        end
-       puts "\nPlease choose a book you would like more details on:\n"
+       get_user_input_book
+       see_more_books
     end
 
     def list_nonfiction_books
         puts "\n\nHere are the top 20 Most Read Fiction books this week:\n\n"
         @nfbooks.each.with_index(1) do |b, i|
+            puts "--------------------------------------"
             puts "#{i}. #{b.title}"
+            puts "--------------------------------------"
        end
-       puts "\nPlease choose a book you would like more details on:\n"
-       get_book_details
+       get_user_input_nfbook
+       see_more_books
     end
 
-    def get_book_details 
-    book_index = gets.strip.to_i
-    @nfbooks.each.with_index(1) do |b, i|
+    def get_user_input_nfbook
+        puts "Please select which book you would like more information on:"
+        chosen_book = gets.strip.to_i
+        chosen_book_index = (chosen_book-1)
+        details = @nfbooks[chosen_book_index]
         puts "-----------------------------------"
-        puts "#{i}. #{b.title}"
-        puts "Author: #{b.author}"
-        puts "Weeks on list: #{b.wol}"
-        puts "Click to see more info: www.amazon.com#{b.urlink}"
+        puts "Title: #{details.title}"
+        puts "Author: #{details.author}"
+        puts "Weeks on list: #{details.wol}"
+        full_url = ("www.amazon.com/charts#{details.urlink}")
+        puts "Click to see more info: #{full_url}"
         puts "-----------------------------------"
+    end 
+  
+    def get_user_input_book
+        puts "Please select which book you would like more information on:"
+        chosen_book = gets.strip.to_i
+        chosen_book_index = (chosen_book-1)
+        details = @books[chosen_book_index]
+        puts "\n\nHere is more information about the book you requested\n\n"
+        puts "-----------------------------------"
+        puts "Title: #{details.title}"
+        puts "Author: #{details.author}"
+        puts "Weeks on list: #{details.wol}"
+        full_url = ("www.amazon.com/charts#{details.urlink}")
+        puts "Click to see more info: #{full_url}"
+        puts "-----------------------------------"
+    end 
+ 
+    def see_more_books
+        puts "Would you like to see more books? (Y/N)"
+        input = gets.strip.downcase
+        case input 
+        when "y"
+            list_categories
+        when "n"
+            goodbye
         end
     end
 end
+  
+

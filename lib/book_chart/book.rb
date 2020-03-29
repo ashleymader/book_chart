@@ -7,7 +7,8 @@ class BookChart::Book
     end
 
     def self.all 
-        @@all
+        BookChart::Scraper.get_fiction_book_info if @@all.empty?
+        @@all 
     end
     
     def book_info
