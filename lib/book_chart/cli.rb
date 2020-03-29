@@ -80,7 +80,6 @@ class BookChart::CLI
         puts "Title: #{details.title}"
         puts "Author: #{details.author}"
         puts "Weeks on list: #{details.wol}"
-        full_url = ("www.amazon.com/charts#{details.urlink}")
         puts ""
         puts "ABOUT THE BOOK: 
         #{details.about}"
