@@ -9,7 +9,7 @@ require 'open-uri'
 require 'pry'
 require 'colorize'
 require 'solargraph'
-
+require 'colorized_string'
 # module BookChart
 #   class Error < StandardError; end
 #   # Your code goes here...

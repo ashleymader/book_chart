@@ -3,7 +3,8 @@
 class BookChart::CLI
 
     def call 
-        puts "\nThank you for visiting Book Charts!\n"
+        puts ""
+        puts "Thank you for visiting Book Charts!".bold.blue
         list_categories
         get_all_books
         get_user_input_category
@@ -11,11 +12,11 @@ class BookChart::CLI
 
     @@categories = ["Most Read Fiction", "Most Read Nonfiction"]    
     def list_categories
-        puts "\nToday's Book Charts:\n"
+        puts "Today's Book Charts:"
         @@categories.each.with_index(1) do |c, i|
             puts "#{i}. #{c}"
         end
-        puts "\nEnter the number of the book chart you would like to see.\n"
+        puts "\nEnter the number of the book chart you would like to see:\n".light_blue.bold
     end
 
     def get_user_input_category
@@ -31,7 +32,7 @@ class BookChart::CLI
         when "2"
             list_nonfiction_books
         else 
-            puts "Oops! Looks like you typed an invalid selection. Please try again"
+            puts "Oops! Looks like you typed an invalid selection. Please try again".bold.red
             get_user_input_category
         end
     end
@@ -46,77 +47,82 @@ class BookChart::CLI
     end
 
     def list_fiction_books
-        puts "\n\nHere are the top 20 Most Read Fiction books this week:\n\n"
+        puts "\n\nHere are the top 20 Most Read Fiction books this week:\n\n".bold.light_blue
         @books.each.with_index(1) do |b, i|
-            puts "--------------------------------------"
+            puts "--------------------------------------".blue
             puts "#{i}. #{b.title}"
-            puts "--------------------------------------"
+            puts "--------------------------------------".blue
        end
        get_user_input_book
 
     end
 
     def list_nonfiction_books
-        puts "\n\nHere are the top 20 Most Read Nonfiction books this week:\n\n"
+        puts "\n\nHere are the top 20 Most Read Nonfiction books this week:\n\n".bold.light_blue
         @nfbooks.each.with_index(1) do |b, i|
-            puts "--------------------------------------"
+            puts "--------------------------------------".blue
             puts "#{i}. #{b.title}"
-            puts "--------------------------------------"
+            puts "--------------------------------------".blue
        end
        get_user_input_nfbook
     end
 
     def get_user_input_nfbook
-            puts "Please select which book you would like more information on:"
+            puts "Please select which book you would like more information on:".bold.light_blue
             chosen_book = gets.strip.to_i 
         if chosen_book > 0 && chosen_book <=20 
             chosen_book_index = (chosen_book-1)
             details = @nfbooks[chosen_book_index]
-            puts "-----------------------------------"
-            puts "Title: #{details.title}"
-            puts "Author: #{details.author}"
-            puts "Weeks on list: #{details.wol}"
+            puts "\nHere is more information about the book you requested!\n".bold
+            puts "-----------------------------------".light_blue
+            puts "Title: #{details.title}".bold
+            puts "Author: #{details.author}".bold
+            puts "Weeks on list: #{details.wol}".bold
             puts ""
-            puts "ABOUT THE BOOK: 
+            puts "ABOUT THE BOOK:".bold
+            puts "
             #{details.about}"
             puts ""
-            puts "READ A SAMPLE HERE:
+            puts "READ A SAMPLE HERE:".bold
+            puts "
             #{details.sample}"
-            puts "-----------------------------------"
+            puts "-----------------------------------".light_blue
         else 
-            puts "Oops! Looks like you typed an invalid selection. Please try again"
+            puts "Oops! Looks like you typed an invalid selection. Please try again".bold.red
             get_user_input_nfbook
         end
         see_more_books
     end 
   
     def get_user_input_book
-        puts "Please select which book you would like more information on:"
+        puts "Please select which book you would like more information on:".bold.light_blue
         chosen_book = gets.strip.to_i
         if chosen_book > 0 && chosen_book <=20 
             chosen_book_index = (chosen_book-1)
             details = @books[chosen_book_index]
-            puts "\nHere is more information about the book you requested!\n"
-            puts "-----------------------------------"
-            puts "Title: #{details.title}"
-            puts "Author: #{details.author}"
-            puts "Weeks on list: #{details.wol}"
+            puts "\nHere is more information about the book you requested!\n".bold
+            puts "-----------------------------------".light_blue
+            puts "Title: #{details.title}".bold
+            puts "Author: #{details.author}".bold
+            puts "Weeks on list: #{details.wol}".bold
             puts ""
-            puts "ABOUT THE BOOK: 
+            puts "ABOUT THE BOOK:".bold
+            puts "
             #{details.about}"
             puts ""
-            puts "READ A SAMPLE HERE:
+            puts "READ A SAMPLE HERE:".bold
+            puts "
             #{details.sample}"
-            puts "-----------------------------------"
+            puts "-----------------------------------".light_blue
         else 
-            puts "Oops! Looks like you typed an invalid selection. Please try again"
+            puts "Oops! Looks like you typed an invalid selection. Please try again".bold.red
             get_user_input_book
         end
         see_more_books
     end 
  
     def see_more_books
-        puts "Would you like to see more books? 1.YES, 2.NO"
+        puts "Would you like to see more books? 1.YES, 2.NO".bold.light_blue
         input = gets.strip
         case input 
         when "1"
@@ -124,7 +130,7 @@ class BookChart::CLI
         when "2"
             goodbye
         else
-            puts "Oops! Looks like you typed an invalid selection. Please try again"
+            puts "Oops! Looks like you typed an invalid selection. Please try again".bold.red
             see_more_books
         end
     end
