@@ -15,7 +15,7 @@ class BookChart::CLI
         @@categories.each.with_index(1) do |c, i|
             puts "#{i}. #{c}"
         end
-        puts "\nEnter the number of the book chart you would like to see, 'back' to go back, or type 'exit'.\n"
+        puts "\nEnter the number of the book chart you would like to see.\n"
     end
 
     def get_user_input_category
@@ -30,14 +30,10 @@ class BookChart::CLI
             list_fiction_books
         when "2"
             list_nonfiction_books
-        when "back"
-            list_categories
-        when "exit"
-            goodbye
         else 
             puts "Oops! Looks like you typed an invalid selection. Please try again"
+            get_user_input_category
         end
-        
     end
 
     def goodbye 
@@ -57,67 +53,79 @@ class BookChart::CLI
             puts "--------------------------------------"
        end
        get_user_input_book
-       see_more_books
+
     end
 
     def list_nonfiction_books
-        puts "\n\nHere are the top 20 Most Read Fiction books this week:\n\n"
+        puts "\n\nHere are the top 20 Most Read Nonfiction books this week:\n\n"
         @nfbooks.each.with_index(1) do |b, i|
             puts "--------------------------------------"
             puts "#{i}. #{b.title}"
             puts "--------------------------------------"
        end
        get_user_input_nfbook
-       see_more_books
     end
 
     def get_user_input_nfbook
-        puts "Please select which book you would like more information on:"
-        chosen_book = gets.strip.to_i 
-        chosen_book_index = (chosen_book-1)
-        details = @nfbooks[chosen_book_index]
-        puts "-----------------------------------"
-        puts "Title: #{details.title}"
-        puts "Author: #{details.author}"
-        puts "Weeks on list: #{details.wol}"
-        puts ""
-        puts "ABOUT THE BOOK: 
-        #{details.about}"
-        puts ""
-        puts "READ A SAMPLE HERE:
-        #{details.sample}"
-        puts "-----------------------------------"
+            puts "Please select which book you would like more information on:"
+            chosen_book = gets.strip.to_i 
+        if chosen_book > 0 && chosen_book <=20 
+            chosen_book_index = (chosen_book-1)
+            details = @nfbooks[chosen_book_index]
+            puts "-----------------------------------"
+            puts "Title: #{details.title}"
+            puts "Author: #{details.author}"
+            puts "Weeks on list: #{details.wol}"
+            puts ""
+            puts "ABOUT THE BOOK: 
+            #{details.about}"
+            puts ""
+            puts "READ A SAMPLE HERE:
+            #{details.sample}"
+            puts "-----------------------------------"
+        else 
+            puts "Oops! Looks like you typed an invalid selection. Please try again"
+            get_user_input_nfbook
+        end
+        see_more_books
     end 
   
     def get_user_input_book
         puts "Please select which book you would like more information on:"
         chosen_book = gets.strip.to_i
-        chosen_book_index = (chosen_book-1)
-        details = @books[chosen_book_index]
-        puts "\nHere is more information about the book you requested!\n"
-        puts "-----------------------------------"
-        puts "Title: #{details.title}"
-        puts "Author: #{details.author}"
-        puts "Weeks on list: #{details.wol}"
-        puts ""
-        puts "ABOUT THE BOOK: 
-        #{details.about}"
-        puts ""
-        puts "READ A SAMPLE HERE:
-        #{details.sample}"
-        puts "-----------------------------------"
+        if chosen_book > 0 && chosen_book <=20 
+            chosen_book_index = (chosen_book-1)
+            details = @books[chosen_book_index]
+            puts "\nHere is more information about the book you requested!\n"
+            puts "-----------------------------------"
+            puts "Title: #{details.title}"
+            puts "Author: #{details.author}"
+            puts "Weeks on list: #{details.wol}"
+            puts ""
+            puts "ABOUT THE BOOK: 
+            #{details.about}"
+            puts ""
+            puts "READ A SAMPLE HERE:
+            #{details.sample}"
+            puts "-----------------------------------"
+        else 
+            puts "Oops! Looks like you typed an invalid selection. Please try again"
+            get_user_input_book
+        end
+        see_more_books
     end 
  
     def see_more_books
-        puts "Would you like to see more books? (Y/N)"
-        input = gets.strip.downcase
+        puts "Would you like to see more books? 1.YES, 2.NO"
+        input = gets.strip
         case input 
-        when "y"
+        when "1"
             call
-        when "n"
+        when "2"
             goodbye
+        else
+            puts "Oops! Looks like you typed an invalid selection. Please try again"
+            see_more_books
         end
     end
 end
-  
-
