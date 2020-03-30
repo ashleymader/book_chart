@@ -16,7 +16,8 @@ class BookChart::CLI
         @@categories.each.with_index(1) do |c, i|
             puts "#{i}. #{c}"
         end
-        puts "\nEnter the number of the book chart you would like to see:\n".light_blue.bold
+        puts ""
+        puts "Enter the number of the book chart you would like to see:".light_blue.bold
     end
 
     def get_user_input_category

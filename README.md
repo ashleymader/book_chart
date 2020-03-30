@@ -1,6 +1,6 @@
 # BookChart
 
-Find out what the Most Sold and Most Read books are on Amazon! 
+Find out what the Most Read fiction/nonfiction books are on Amazon. 
 
 ## Installation
 
@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Get more details, a short decription of the book and a link to sample the book of your choosing by navigating through the menu and selecting which book you are interested in.
 
 ## Development
 
@@ -30,7 +30,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/<github username>/book_chart. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/<github username>/book_chart/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/ashleymader/book_chart. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/ashleymader/book_chart/blob/master/CODE_OF_CONDUCT.md).
 
 
 ## License
