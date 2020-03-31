@@ -10,5 +10,4 @@ class BookChart::NonfictionBook
         BookChart::Scraper.get_nonfiction_book_info if @@all.empty?
         @@all
     end
-
 end

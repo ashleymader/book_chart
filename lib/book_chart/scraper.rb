@@ -41,7 +41,6 @@ class BookChart::Scraper
         book.sample = b.css(".circle-icon.read").attr("href")
         end
     end
-    
 end
 
 
