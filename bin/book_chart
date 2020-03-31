@@ -2,3 +2,4 @@
 require './lib/environment'
 
 BookChart::CLI.new.call #class method that triggers an instance method within the class
+ 
