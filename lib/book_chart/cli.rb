@@ -23,7 +23,7 @@ class BookChart::CLI
     def get_user_input_category
         chosen_category = gets.strip
         show_books_for(chosen_category) 
-        @input = chosen_category
+        input = chosen_category
     end 
 
     def show_books_for(chosen_category)
@@ -55,7 +55,6 @@ class BookChart::CLI
             puts "--------------------------------------".blue
        end
        get_user_input_book
-
     end
 
     def list_nonfiction_books
@@ -69,8 +68,8 @@ class BookChart::CLI
     end
 
     def get_user_input_nfbook
-            puts "Please select which book you would like more information on:".bold.light_blue
-            chosen_book = gets.strip.to_i 
+        puts "Please select which book you would like more information on:".bold.light_blue
+        chosen_book = gets.strip.to_i 
         if chosen_book > 0 && chosen_book <=20 
             chosen_book_index = (chosen_book-1)
             details = @nfbooks[chosen_book_index]
