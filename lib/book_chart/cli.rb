@@ -53,7 +53,7 @@ class BookChart::CLI
             puts "--------------------------------------".blue
             puts "#{i}. #{b.title}"
             puts "--------------------------------------".blue
-       end
+        end
        get_user_input_book
     end
 
